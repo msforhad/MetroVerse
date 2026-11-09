@@ -12,86 +12,125 @@ import Footer from "./components/Footer";
 import History from "./pages/History";
 import ProfilePage from "./pages/ProfilePage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import DepartmentResources from "./pages/DepartmentResources";
 import {Toaster} from 'react-hot-toast';
+import MyResources from "./pages/MyResources";
+import PDFViewer from "./pages/PDFViewer";
 export default function App() {
   const location = useLocation();
   const hideNav = location.pathname === "/login" || location.pathname === "/signup";
 
   return (
-  <>
-    {!hideNav && <Navbar />}
-    <Toaster position="top-right"/>
-    <main>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route
-          path="/dept/:deptId/years"
-          element={
-            <ProtectedRoute>
-              <Years />
-            </ProtectedRoute>
-          }
-        />
+    <>
+      {!hideNav && <Navbar />}
+      <Toaster position="top-right" />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/dept/:deptId/years"
+            element={
+              <ProtectedRoute>
+                <Years />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route
+            path="/read/:fileId"
+            element={
+              <ProtectedRoute>
+                <PDFViewer />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/dept/:deptId/year/:yearId"
-          element={
-            <ProtectedRoute>
-              <Semester />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/dept/:deptId/year/:yearId"
+            element={
+              <ProtectedRoute>
+                <Semester />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/dept/:deptId/year/:yearId/sem/:semId/subjects"
-          element={
-            <ProtectedRoute>
-              <Subjects />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/dept/:deptId/resources"
+            element={
+              <ProtectedRoute>
+                <DepartmentResources />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/dept/:deptId/year/:yearId/sem/:semId/files"
-          element={
-            <ProtectedRoute>
-              <FilesPage />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/dept/:deptId/year/:yearId/sem/:semId/subjects"
+            element={
+              <ProtectedRoute>
+                <Subjects />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/upload"
-          element={
-            <ProtectedRoute>
-              <Upload />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/dept/:deptId/year/:yearId/sem/:semId/files"
+            element={
+              <ProtectedRoute>
+                <FilesPage />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/history"
-          element={
-            <ProtectedRoute>
-              <History />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/upload"
+            element={
+              <ProtectedRoute>
+                <Upload />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/profile"
-          element={
-            <ProtectedRoute>
-              <ProfilePage />
-            </ProtectedRoute>
-          }
-        />
-       <Route path="*" element={<h2><strong><big>404</big></strong>Page Not Found</h2>} />
-      </Routes>
-    </main>
-    <Footer />
-  </>
-);
+          <Route
+            path="/history"
+            element={
+              <ProtectedRoute>
+                <History />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/my-resources"
+            element={
+              <ProtectedRoute>
+                <MyResources />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <h2>
+                <strong>
+                  <big>404</big>
+                </strong>
+                Page Not Found
+              </h2>
+            }
+          />
+        </Routes>
+      </main>
+      <Footer />
+    </>
+  );
 }

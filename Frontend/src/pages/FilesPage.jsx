@@ -11,16 +11,42 @@ export default function FilesPage() {
 
   const [files, setFiles] = useState([]);
   const [err, setErr] = useState("");
+  const [deptShortName, setDeptShortName] = useState("");
 
+  // ---------- Load Department Short Name ----------
+  useEffect(() => {
+    const loadDepartment = async () => {
+      try {
+        const { data } = await API.get("/departments");
+
+        const department = data.find(
+          (dept) => String(dept.dept_id) === String(deptId),
+        );
+
+        if (department) {
+          setDeptShortName(department.short_name);
+        }
+      } catch (e) {
+        console.error("Failed to load department", e);
+        setDeptShortName(deptId);
+      }
+    };
+
+    loadDepartment();
+  }, [deptId]);
+
+  // ---------- Load Files ----------
   useEffect(() => {
     (async () => {
       try {
+        setErr("");
+
         const { data } = await API.get("/files", {
           params: {
             year_id: yearId,
             sem_id: semId,
-            subject_id: subjectId || undefined
-          }
+            subject_id: subjectId || undefined,
+          },
         });
 
         if (!Array.isArray(data) || data.length === 0) {
@@ -35,17 +61,25 @@ export default function FilesPage() {
         setErr("Failed to load files");
 
         setFiles([
-          { name: `Sample Notes - Year ${yearId} Sem ${semId}`, url: "/sample/sample1.pdf", type: "PDF" },
-          { name: `Sample Paper - Year ${yearId} Sem ${semId}`, url: "/sample/sample2.pdf", type: "PDF" }
+          {
+            name: `Sample Notes - Year ${yearId} Sem ${semId}`,
+            url: "/sample/sample1.pdf",
+            type: "PDF",
+          },
+          {
+            name: `Sample Paper - Year ${yearId} Sem ${semId}`,
+            url: "/sample/sample2.pdf",
+            type: "PDF",
+          },
         ]);
       }
     })();
   }, [yearId, semId, subjectId]);
 
   return (
-    <div className="container page-padding">
+    <div className=" page-padding">
       <h2>
-        Files — Dept {deptId} • Year {yearId} • Sem {semId}
+        Files — {deptShortName || "Department"} • Year {yearId} • Sem {semId}
         {subjectId && ` • Subject ${subjectId}`}
       </h2>
 
@@ -56,10 +90,10 @@ export default function FilesPage() {
           <FileCard
             key={i}
             file={{
-              file_id:f.file_id,
+              file_id: f.file_id,
               name: f.file_name || f.name,
               url: f.file_url || f.url,
-              type: f.file_type || f.type || "PDF"
+              type: f.file_type || f.type || "PDF",
             }}
           />
         ))}

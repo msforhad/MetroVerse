@@ -1,0 +1,161 @@
+.my-resources-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 30px 80px;
+}
+
+.my-resources-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.my-resources-header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.my-resources-header p {
+  color: #666;
+  font-size: 16px;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.resource-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 24px;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-4px);
+  border-color: #2563eb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.resource-icon {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 25px;
+
+  background: #eef4ff;
+  border-radius: 12px;
+
+  flex-shrink: 0;
+}
+
+.resource-info {
+  flex: 1;
+}
+
+.resource-info h3 {
+  margin: 0 0 7px;
+  font-size: 18px;
+}
+
+.course-code {
+  margin: 0 0 10px;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.resource-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.resource-meta span {
+  font-size: 12px;
+  color: #555;
+  background: #f3f4f6;
+  padding: 5px 9px;
+  border-radius: 6px;
+}
+
+.pdf-count {
+  color: #555;
+  font-size: 13px;
+}
+
+.resource-arrow {
+  font-size: 25px;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.resources-message,
+.resources-error,
+.resources-empty {
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 35px 25px;
+  border-radius: 12px;
+}
+
+.resources-message {
+  color: #555;
+}
+
+.resources-error {
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.resources-empty {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+}
+
+.resources-empty h2 {
+  margin-bottom: 10px;
+}
+
+.resources-empty p {
+  color: #666;
+}
+
+@media (max-width: 600px) {
+  .my-resources-container {
+    padding: 35px 18px 60px;
+  }
+
+  .my-resources-header h1 {
+    font-size: 28px;
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-card {
+    padding: 20px;
+  }
+}

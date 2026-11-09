@@ -1,0 +1,77 @@
+.department-resources {
+  padding-top: 40px;
+  padding-bottom: 70px;
+}
+
+.department-resources-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.department-resources-header h1 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.department-resources-header p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.department-resources-header span {
+  display: inline-block;
+  background: #eef4ff;
+  color: #2563eb;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.department-resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.department-resource-card {
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.department-resource-info h3 {
+  margin-bottom: 6px;
+}
+
+.department-resource-info p {
+  color: #2563eb;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.department-resource-meta {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.department-resource-meta span {
+  padding: 5px 9px;
+  background: #f3f4f6;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.department-resource-info strong {
+  display: block;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+
+.department-resource-error,
+.department-resource-empty {
+  text-align: center;
+  padding: 35px;
+  color: #666;
+}

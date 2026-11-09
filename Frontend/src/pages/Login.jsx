@@ -38,7 +38,7 @@ return (
             type="email"
             placeholder="Email"
             value={form.email}
-            onChange={(e)=>setForm({...form, email:e.target.value})}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
         </div>
 
@@ -47,21 +47,23 @@ return (
             type="password"
             placeholder="Password"
             value={form.password}
-            onChange={(e)=>setForm({...form, password:e.target.value})}
+            onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
         </div>
 
-        <button className="auth-btn" type="submit">Login</button>
+        <button className="auth-btn" type="submit">
+          Login
+        </button>
       </form>
 
       <p className="auth-link">
         Don't have an account? <Link to="/signup">Sign up</Link>
       </p>
-         <div className="demo-box">
-      <h4>Demo Login (For Recruiters )</h4>
-      <p>Email: demo.login@gmail.com</p>
-      <p>Password: demo@1234</p>
-         </div>
+      <div className="demo-box">
+        <h4>Demo Login (For Recruiters )</h4>
+        <p>Email: metro.verse@gmail.com</p>
+        <p>Password: metro.verse</p>
+      </div>
       {err && <p className="auth-error">{err}</p>}
     </div>
   </div>

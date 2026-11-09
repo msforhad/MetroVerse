@@ -9,3 +9,75 @@
   font-weight: 700;
 }
 .download-btn:hover { background: var(--blue); }
+
+.file-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.file-actions button {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.read-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.read-btn:hover {
+  background: #1d4ed8;
+}
+
+.download-btn {
+  background: #15803d;
+  color: white;
+}
+
+.download-btn:hover {
+  background: #166534;
+}
+
+.file-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.file-actions button {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.read-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.read-btn:hover {
+  background: #1d4ed8;
+}
+
+.download-btn {
+  background: #15803d;
+  color: white;
+}
+
+.download-btn:hover {
+  background: #166534;
+}
